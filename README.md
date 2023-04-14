@@ -1,4 +1,4 @@
-# messing-with-remix-1
+# Remix Blog based on Indie Stack
 
 Great article on the beneifits of Remix:
 
