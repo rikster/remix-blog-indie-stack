@@ -1,6 +1,6 @@
 # Remix Blog based on Indie Stack
 
-Great article on the beneifits of Remix:
+Great article on the benefits of Remix:
 
 https://kentcdodds.com/blog/why-i-love-remix
 
