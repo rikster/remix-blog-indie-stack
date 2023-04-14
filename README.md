@@ -1,12 +1,38 @@
-# Remix Indie Stack
+# messing-with-remix-1
 
-![The Remix Indie Stack](https://repository-images.githubusercontent.com/465928257/a241fa49-bd4d-485a-a2a5-5cb8e4ee0abf)
+Great article on the beneifits of Remix:
 
-Learn more about [Remix Stacks](https://remix.run/stacks).
+https://kentcdodds.com/blog/why-i-love-remix
+
+In summary:
+
+1. Remix allows for building amazing user experiences with code satisfaction.
+2. User experience aspects like accessibility, performance, reliability, error handling, and resilience are well-supported.
+3. State management is effectively managed within the framework.
+4. Preloading assets and data improves website speed.
+5. Remix is resilient in poor network conditions and supports progressive enhancement.
+6. Declarative error handling helps manage errors in context.
+7. Simplified React code reduces complexity.
+8. Reliance on web APIs allows for better web development skills.
+9. Write once, host anywhere capability due to platform adaptability.
+10. Reduced data overfetching problems and no need for complex client libraries.
+11. Declarative mutations API simplifies mutations and race condition handling.
+12. Client and server-side validation is easily achieved.
+13. Remix simplifies implementation of Optimistic UI, secure authentication, code reuse, and pagination.
+
+ 
+Yay:
+"Another awesome part of the loader thing is that because it runs on the server I can hit APIs that give me far too much data and slim it down to just the part of the data I need. That means I can naturally eliminate the data overfetching problem that leads so many of us to reach for the complexity of graphql. I mean, you can still totally use graphql with Remix, but because Remix manages the client/server communication for you, you don't have to ship a huge and complex graphql client library to the browser and instead just rely on Remix to do the right thing at the right time (which it does)."
+
+### Tech Stack
+
+Boostrapped w/ The "Indie Stack"
 
 ```
-npx create-remix@latest --template remix-run/indie-stack
+npx create-remix@latest --template remix-run/indie-stack messing-with-remix-1
 ```
+
+[WTF are stacks?](https://remix.run/docs/en/main/pages/stacks#remix-stacks) 
 
 ## What's in the stack
 
@@ -86,8 +112,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Create two apps on Fly, one for staging and one for production:
 
   ```sh
-  fly apps create indie-stack-template
-  fly apps create indie-stack-template-staging
+  fly apps create messing-with-remix-1-1f4e
+  fly apps create messing-with-remix-1-1f4e-staging
   ```
 
   > **Note:** Make sure this name matches the `app` set in your `fly.toml` file. Otherwise, you will not be able to deploy.
@@ -109,8 +135,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Add a `SESSION_SECRET` to your fly app secrets, to do this you can run the following commands:
 
   ```sh
-  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app indie-stack-template
-  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app indie-stack-template-staging
+  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app messing-with-remix-1-1f4e
+  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app messing-with-remix-1-1f4e-staging
   ```
 
   If you don't have openssl installed, you can also use [1password](https://1password.com/password-generator/) to generate a random secret, just replace `$(openssl rand -hex 32)` with the generated secret.
@@ -118,8 +144,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Create a persistent volume for the sqlite database for both your staging and production environments. Run the following:
 
   ```sh
-  fly volumes create data --size 1 --app indie-stack-template
-  fly volumes create data --size 1 --app indie-stack-template-staging
+  fly volumes create data --size 1 --app messing-with-remix-1-1f4e
+  fly volumes create data --size 1 --app messing-with-remix-1-1f4e-staging
   ```
 
 Now that everything is set up you can commit and push your changes to your repo. Every commit to your `main` branch will trigger a deployment to your production environment, and every commit to your `dev` branch will trigger a deployment to your staging environment.
@@ -178,3 +204,5 @@ This project uses ESLint for linting. That is configured in `.eslintrc.js`.
 ### Formatting
 
 We use [Prettier](https://prettier.io/) for auto-formatting in this project. It's recommended to install an editor plugin (like the [VSCode Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)) to get auto-formatting on save. There's also a `npm run format` script you can run to format all files in the project.
+
+
