@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
 
 //create a async arrow fuction to fetch the posts
 export const loader = async () => {
@@ -16,21 +17,15 @@ export const loader = async () => {
         }
     ];
 
-    const postsString = JSON.stringify({ posts });
 
-    return new Response(postsString, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-
-    });
+    return json({ posts })
 }
 
 
 export default function PostsRoute() {
 
     //get the posts from the loader
-    const posts = useLoaderData().posts;
+    const { posts } = useLoaderData();
 
     //return the list of posts
     return (
