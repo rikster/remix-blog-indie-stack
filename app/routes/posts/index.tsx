@@ -25,7 +25,8 @@ export const loader = async () => {
 export default function PostsRoute() {
 
     //get the posts from the loader
-    const { posts } = useLoaderData();
+    // const { posts } = useLoaderData();
+    const posts = useLoaderData().posts;
 
     //return the list of posts
     return (
