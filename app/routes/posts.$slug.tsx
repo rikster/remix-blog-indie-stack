@@ -1,10 +1,20 @@
-// https://github.com/remix-run/remix/discussions/5778
-export default function PostRout() {
+import { LoaderFunction, json } from "@remix-run/node"
+import { useLoaderData } from "@remix-run/react";
+import { getPostBySlug } from "~/models/post.server";
 
-    //return some jsx
+
+export const loader: LoaderFunction = async ({ params }) => {
+    const { slug } = params;
+    const post = await getPostBySlug(slug);
+    return json({ post }); //ensure to destructure the post object
+}
+
+export default function PostsRoute() {
+    const { post } = useLoaderData();
+
     return (
         <div>
-            <h1>Post</h1>
+            <h1>{post.title}</h1>
         </div>
     );
 };
