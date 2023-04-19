@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { getPostBySlug } from "~/models/post.server";
 import { marked } from "marked";
 
+//loader runs on the servr so shaping traffic is so easy
 export const loader: LoaderFunction = async ({ params }) => {
     const { slug } = params;
     const post = await getPostBySlug(slug);
