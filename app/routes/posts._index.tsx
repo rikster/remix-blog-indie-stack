@@ -23,10 +23,15 @@ export default function PostsRoute() {
     return (
         <div>
             <h1>Posts</h1>
+
+            <Link to="/posts/admin" className="text-red-600 underline">
+                Admin
+            </Link>
+
             <ul>
                 {posts.map((post) => (
                     <li key={post.slug}>
-                        <Link to={`/posts/${post.slug}`}>{post.title}</Link>
+                        <Link className="text-blue-600 underline" to={`/posts/${post.slug}`}>{post.title}</Link>
                     </li>
                 ))}
             </ul>

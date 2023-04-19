@@ -10,7 +10,7 @@ type LoaderData = {
     html: string;
 }
 
-//loader runs on the servr so shaping traffic is so easy
+//loader HOOK runs on the servr so shaping traffic is so easy
 export const loader: LoaderFunction = async ({ params }) => {
     const { slug } = params;
     invariant(slug, "slug is required")
